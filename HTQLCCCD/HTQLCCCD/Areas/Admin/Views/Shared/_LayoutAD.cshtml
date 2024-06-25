@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+   
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <!-- loader-->
+    <link href="~/Content/assets/css/pace.min.css" rel="stylesheet" />
+    <script src="~/Content/assets/js/pace.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico">
+
+    <!-- simplebar CSS-->
+    <link href="~/Content/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="~/Content/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Icons CSS-->
+    <link href="~/Content/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="~/Content/assets/css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="~/Content/assets/css/app-style.css" rel="stylesheet" />
+</head>
+<body class="bg-theme bg-theme1">
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+            <div class="brand-logo">
+                <a href="index.html">
+                    <img src="~/Content/img/logo_2.png" class="logo-icon" alt="logo icon">
+                    <h5 class="logo-text">ADMIN</h5>
+                </a>
+            </div>
+            <ul class="sidebar-menu do-nicescrol">
+
+                <li>
+                    <a href="~/Admin/Home/Index">
+                        <i class="zmdi zmdi-view-dashboard"></i> <span>Trang chủ</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="~/Admin/Authorities/Index">
+                        <i class="zmdi zmdi-invert-colors"></i> <span>Cơ quan chính quyền</span>
+                    </a>
+                </li>
+
+
+
+                <li>
+                    <a href="~/Admin/Citizen/Index">
+                        <i class="zmdi zmdi-face"></i> <span>Công dân</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="~/Home/Logout">
+                        <i class="zmdi zmdi-lock"></i> <span>Đăng xuất</span>
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </div>
+        <!--End sidebar-wrapper-->
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+            </div>
+                
+                <div class="right-sidebar">
+                    <div class="switcher-icon">
+                        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+                    </div>
+                    <div class="right-sidebar-content">
+
+                        <p class="mb-0">Gaussion Texture</p>
+                        <hr>
+
+                        <ul class="switcher">
+                            <li id="theme1"></li>
+                            <li id="theme2"></li>
+                            <li id="theme3"></li>
+                            <li id="theme4"></li>
+                            <li id="theme5"></li>
+                            <li id="theme6"></li>
+                        </ul>
+
+                        <p class="mb-0">Gradient Background</p>
+                        <hr>
+
+                        <ul class="switcher">
+                            <li id="theme7"></li>
+                            <li id="theme8"></li>
+                            <li id="theme9"></li>
+                            <li id="theme10"></li>
+                            <li id="theme11"></li>
+                            <li id="theme12"></li>
+                            <li id="theme13"></li>
+                            <li id="theme14"></li>
+                            <li id="theme15"></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Bootstrap core JavaScript-->
+            <script src="~/Content/assets/js/jquery.min.js"></script>
+            <script src="~/Content/assets/js/popper.min.js"></script>
+            <script src="~/Content/assets/js/bootstrap.min.js"></script>
+
+            <!-- simplebar js -->
+            <script src="~/Content/assets/plugins/simplebar/js/simplebar.js"></script>
+            <!-- sidebar-menu js -->
+            <script src="~/Content/assets/js/sidebar-menu.js"></script>
+            <!-- loader scripts -->
+            <script src="~/Content/assets/js/jquery.loading-indicator.js"></script>
+            <!-- Custom scripts -->
+            <script src="~/Content/assets/js/app-script.js"></script>
+            <!-- Chart js -->
+
+            <script src="~/Content/assets/plugins/Chart.js/Chart.min.js"></script>
+
+            <!-- Index js -->
+            <script src="~/Content/assets/js/index.js"></script>
+</body>
+</html>

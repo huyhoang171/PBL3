@@ -1,0 +1,87 @@
+﻿@model IEnumerable<HTQLCCCD.Models.appointment_schedule>
+
+@{
+    ViewBag.Title = "Lịch Hẹn";
+    Layout = "~/Areas/Citizen/Views/Shared/_Layout.cshtml";
+}
+
+<div style="max-width: 600px; margin: 20px auto; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <div style="background-color: #FF9933; color: #fff; padding: 20px; text-align: center; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+        <h2>Lịch Hẹn Sắp Tới</h2>
+    </div>
+    <div style="padding: 20px;">
+
+        @if (ViewBag.Upcoming == null)
+        {
+            <h4 style="text-align: center ">Không có lịch hẹn nào</h4>
+        }
+        else
+        {
+            <div style="margin-bottom: 10px; padding: 10px; background-color: #f0f0f0; border-radius: 4px;">
+                
+                <p style="margin-bottom: 0;">Ngày: @ViewBag.Upcoming.Time_start.Day/@ViewBag.Upcoming.Time_start.Month/@ViewBag.Upcoming.Time_start.Year</p>
+                <p style="margin-bottom: 0;">Giờ: @ViewBag.Upcoming.Time_start.Hour:@ViewBag.Upcoming.Time_start.Minute</p>
+                <p style="margin-bottom: 0;">Mục đính: @ViewBag.Upcoming.Purport</p>
+            </div>
+        }
+
+
+        <!-- Add more events as needed -->
+    </div>
+</div>
+
+<h2 class="title-lh">Danh sách các lịch hẹn của tôi</h2>
+
+<p class="p-lh">
+    @Html.ActionLink("Tạo lịch hẹn", "Add")
+</p>
+<table class="table-lh">
+    <tr>
+        <th>
+            Ngày gửi
+        </th>
+        <th>
+            Ngày hẹn
+        </th>
+        <th>
+            Tình trạng
+        </th>
+        <th>
+            Mục đích cuộc hẹn
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Date_send.Value.Day/@item.Date_send.Value.Month/@item.Date_send.Value.Year
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time_start)
+            </td>
+
+            @if (item.Id_solver != null)
+            {
+                <td>Đã duyệt</td>
+            }
+            else
+            {
+                <td>Chưa duyệt</td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Purport)
+            </td>
+            <td>
+                @if (item.Solved == false )
+                {
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>
+

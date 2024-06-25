@@ -1,0 +1,54 @@
+Phần I: Tổng quan đề tài
+- Lý do chọn đề tài:
+  .Tính cấp thiết và hiện đại: Trong thời đại công nghệ số ngày nay, việc phát triển hệ thống quản lý căn cước công dân điện tử là cực kỳ cần thiết để đáp ứng nhu cầu của xã hội hiện đại. Điện tử hóa quy trình quản lý căn cước không chỉ giúp tiết kiệm thời gian và chi phí mà còn tăng cường tính hiệu quả và tiện lợi cho người dân.
+  .Tối ưu hóa quy trình hành chính: Hệ thống này hứa hẹn giảm thiểu thủ tục hành chính, tăng cường sự linh hoạt và tính khả thi trong việc xác thực và quản lý thông tin căn cước công dân. Điều này không chỉ mang lại lợi ích cho người dân mà còn giúp cải thiện năng suất và hiệu quả của các cơ quan quản lý nhà nước.
+
+- Mục đích của đề tài:
+  .Cung cấp một hệ thống mà công dân có thể dễ dàng quản lý thông tin cá nhân của mình và giảm thiểu thủ tục phức tạp liên quan đến các quá trình hành chính
+  .Cơ quan chính quyền có thể quản lý công dân 1 cách dễ dàng hơn
+  .Nắm vững hơn về cách thiết kế 1 hệ thống công nghệ
+
+- Cơ sở lý thuyết:
+  . Hệ thống được xây dựng dựa trên framework ASP.NET MVC, đây là một framework phát triển ứng dụng web được phát triển bởi Microsoft, MVC viết tắt của Model-View-Controller là một mô hình thiết kế phổ biến trong phát triển phần mềm.
+         + Model: Đại diện cho dữ liệu của ứng dụng và quy định các logic xử lý dữ liệu.
+         + View: Đại diện cho giao diện người dung
+         + Controller: Là thành phần chịu trách nhiệm điều phối và điều hướng các yêu cầu của người dùng.
+
+Phần II: Phân tích và thiết kế hệ thống
+
+- Các tác nhân: công dân, cơ quan chính quyền, admin
+
+- Các chức năng hệ thống:
+  + Chức năng chung: Đăng nhập, đăng xuất, đổi mật khẩu
+  + Chức năng riêng: 
+         .Công dân: xem thông tin cá nhân, gửi yều cầu thay đổi thông tin cá nhân, giải quyết khiếu nại, đặt lịch hẹn, nhận thông báo, đóng góp ý kiến
+         .Cơ quan chính quyền: Xem thông tin cá nhân, quản lý thông tin công dân, quản lý yêu cầu, gửi thông báo, quản lý lịch hẹn, thống kê và tạo báo cáo
+         .Admin: quản lý tất cả tài khoản hiện có trong hệ thống
+
+- Biểu đồ use-case tổng quát
+
+- Show cơ sở dữ lieu
+
+Phần III: Kết quả đạt được
+
+- Show một số giao diện chức năng
+
+Phần IV: Tổng kết
+- Hoàn thành xong thiết kế và đặc tả hệ thống
+
+- Hạn chế: . Chưa hoàn thành xong sản phẩm
+           . Hệ thống vẫn chưa cung cấp đầy đủ các dịch vụ hành chính cho công dân
+
+- Hướng phát triển: .Kết hợp các công nghệ hiện đại như trí tuệ nhân tạo, blockchain và an ninh mạng, ==> hệ thống sẽ không chỉ giúp cải thiện quản lý căn cước công dân mà còn đảm bảo tính bảo mật và minh bạch cho thông tin cá nhân của người dân.
+                    .Hệ thống này có thể được tích hợp vào các dịch vụ công nghệ khác như thanh toán điện tử giúp công dân dễ dàng thanh toán hơn, tiết kiệm thời gian và chi phí.
+
+
+
+--------- Phần trình bày -------------
+- Hệ thống gồm 3 tác nhân với mỗi tác nhân sẽ được phân vùng riêng với các giao diện khác nhau
+
+- Nhìn vào biểu đồ use-case tổng quát thì mình sẽ thấy được các chức năng của từng tác nhân, đầu tiên là chức năng chung ..., chức năng riêng ...
+
+- csdl gồm có 11 bảng, bảng account lưu thông tin tài khoản, admin sẽ lưu thông tin cá nhân của admin, bảng công dân sẽ lưu thông tin công dân như tên ngày sinh quê quán cha mẹ và ngoài ra thông tin tiền án tiền sự của công dân sẽ được lưu vào bảng tiền án, bảng yêu cầu lưu nội dung yêu cầu của công dân gửi đến, bảng lịch hẹn sẽ lưu thông tin lịch hẹn của công dân gửi tới, bảng cơ quan chính quyền lưu thông tin cơ bản của cơ quan chính quyền, bảng thông báo sẽ lưu nội dung các thông báo, bảng sending sẽ lưu thông tin của người gửi thông báo và người nhận, bảng feedback sẽ lưu các đóng góp ý kiến của công dân, cuối cùng là bảng state_leaders lưu thông tin cơ bản của lãnh đạo nhà nước.
+
+- với phần kết quả đạt được bọn em sẽ trình bày một số giao diện của các chức năng có trong hệ thống,... đây là giao diện trang chủ khi mà mới vào hệ thống,...xem danh sách lịch hẹn thì các lịch hẹn được công dân lên lịch sẽ được hiển thị ở đây, xem thông tin chính phủ thì công dân muốn xem thông tin chính phủ đương nhiệm thì bấm vào nhãn ... muốn xem thông tin người lãnh đạo ở cấp tỉnh/tp

@@ -1,0 +1,116 @@
+﻿@model HTQLCCCD.Models.citizen
+
+@{
+    ViewBag.Title = "Chỉnh Sửa Thông Tin";
+    Layout = "~/Areas/Authorities/Views/Shared/_LayoutCQ.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Edit","ManagerCitizen",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Chỉnh sửa thông tin</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Họ và tên</label>
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Giới tính</label>
+            <div class="col-md-12">
+                <select name="Sex" class="form-control">
+                    <option value="true" @(Model.Sex == true ? "selected" : "")>Nam</option>
+                    <option value="false" @(Model.Sex == false ? "selected" : "") )>Nữ</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ngày sinh</label>
+            <div class="col-md-12">
+                @Html.TextBoxFor(model => model.Date_of_birth, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                @Html.ValidationMessageFor(model => model.Date_of_birth, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Quê quán</label>
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Place_of_origin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Place_of_origin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nơi cư trú</label>
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Place_of_residence, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Place_of_residence, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Công việc</label>
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.job, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.job, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Hôn nhân</label>
+            <div class="col-md-12">
+                <select name="Married" class="form-control">
+                    <option value="true" @(Model.Married == true ? "selected" : "")>Đã kết hôn</option>
+                    <option value="false" @(Model.Married == false ? "selected" : "")>Chưa kết hôn</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nhập ngũ</label>
+            <div class="col-md-12">
+                <select name="Join_military" class="form-control">
+                    <option value="true" @(Model.Join_military == true ? "selected" : "")>Đã nhập ngũ</option>
+                    <option value="false" @(Model.Join_military == false ? "selected" : "")>Chưa nhập ngũ</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Số ID bố</label>
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Father, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Father, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Số ID mẹ</label>
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Mother, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mother, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-12">
+                <input type="submit" value="Chỉnh sửa" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div style="margin-left: 350px;">
+    @Html.ActionLink("Quay lại", "Index")
+</div>

@@ -1,0 +1,76 @@
+﻿@model HTQLCCCD.Models.feedback
+
+@{
+    ViewBag.Title = "Đóng góp ý kiến";
+    Layout = "~/Areas/Citizen/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Index", "Feedback", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div style="height: 120px;">
+            <i style="background-image: url('/Content/img/chim-hac.png'); float: left; width: 56px; height: 46px; margin-left: 290px; margin-right: 15px;"></i>
+            <h2 style="float:left;">Đóng góp ý kiến</h2>
+            <h4 style="clear:left;">Hãy gửi những ý kiến đóng góp của bạn về quá trình giải quyết thủ tục hành chính, hoặc về hệ thống</h4>
+        </div>
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nội dung:</label>
+            <div class="col-md-10" style="margin-top: 15px;">
+
+                @Html.TextAreaFor(model => model.Purport, new { @class = "form-control", rows = "6", cols = "50", placeholder = "Nhập từ 20 ký tự trở lên" })
+
+                @Html.ValidationMessageFor(model => model.Purport, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Gửi" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <p style="margin-left: 350px">(*) Chúng tôi luôn tích cực nhận những ý kiến đóng góp của bạn!!!</p>
+</div>
+
+@if (ViewBag.feedback.Count > 0)
+{
+    <h2 style="margin-top: 50px; margin-left: 100px;">Đóng góp ý kiến gần đây</h2>
+    <table class="table-lh">
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                Nội dung
+            </th>
+            
+        </tr>
+
+        @for(int i = 0; i < ViewBag.feedback.Count; i++)
+        {
+            <tr>
+                <td>
+                    @(i+1)
+                </td>
+                <td>
+                    @ViewBag.feedback[i].Purport
+                </td>
+
+                
+            </tr>
+        }
+
+    </table>
+}    

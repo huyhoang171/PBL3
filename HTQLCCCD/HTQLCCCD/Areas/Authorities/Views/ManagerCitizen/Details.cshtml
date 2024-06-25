@@ -1,0 +1,104 @@
+﻿@model HTQLCCCD.Models.citizen
+
+@{
+    ViewBag.Title = "Chi Tiết Thông Tin Công Dân";
+    Layout = "~/Areas/Authorities/Views/Shared/_LayoutCQ.cshtml";
+}
+
+<div style="margin-left: 50px; margin-top: 50px; margin-bottom: 20px;">
+    @Html.ActionLink("Quay lại", "index")
+</div>
+<h4 class=" Title_Account">Chi tiết thông tin công dân</h4>
+<table class="styled-table">
+    <tr>
+        <th>Số CCCD</th>
+        <td>@Model.Number</td>
+    </tr>
+    <tr>
+        <th>Họ và Tên</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Giới tính</th>
+        @if (Model.Sex == true)
+        {
+            <td>Nam</td>
+        }
+        else
+        {
+            <td>Nữ</td>
+        }
+    </tr>
+    <tr>
+        <th>Ngày sinh</th>
+        <td>@Model.Date_of_birth.Value.Day / @Model.Date_of_birth.Value.Month / @Model.Date_of_birth.Value.Year</td>
+    </tr>
+    <tr>
+        <th>Quê quán</th>
+        <td>@Model.Place_of_origin</td>
+    </tr>
+    <tr>
+        <th>Nơi cư trú</th>
+        <td>@Model.Place_of_residence</td>
+    </tr>
+    <tr>
+        <th>Công việc</th>
+        <td>@Model.job</td>
+    </tr>
+    <tr>
+        <th>Tình trạng hôn nhân</th>
+        @if (Model.Married == true)
+        {
+            <td>Đã kết hôn</td>
+        }
+        else
+        {
+            <td>Chưa kết hôn</td>
+        }
+    </tr>
+    <tr>
+        <th>Họ và tên bố</th>
+        @if (@Model.citizen2 != null)
+        {
+            <td>@Model.citizen2.Name</td>
+        }
+        else
+        {
+            <td></td>
+        }
+    </tr>
+    <tr>
+        <th>Ngày sinh bố</th>
+        @if (@Model.citizen2 != null)
+        {
+            <td>@Model.citizen2.Date_of_birth.Value.Day / @Model.citizen2.Date_of_birth.Value.Month / @Model.citizen2.Date_of_birth.Value.Year</td>
+        }
+        else
+        {
+            <td></td>
+        }
+    </tr>
+    <tr>
+        <th>Họ và tên mẹ</th>
+        @if (@Model.citizen3 != null)
+        {
+            <td>@Model.citizen3.Name</td>
+        }
+        else
+        {
+            <td></td>
+        }
+    </tr>
+    <tr>
+        <th>Ngày sinh mẹ</th>
+        @if (@Model.citizen3 != null)
+        {
+            <td>@Model.citizen3.Date_of_birth.Value.Day / @Model.citizen3.Date_of_birth.Value.Month / @Model.citizen3.Date_of_birth.Value.Year</td>
+        }
+        else
+        {
+            <td></td>
+        }
+    </tr>
+</table>
+

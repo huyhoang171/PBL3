@@ -1,0 +1,353 @@
+﻿@model HTQLCCCD.Models.authority
+
+@{
+    ViewBag.Title = "Hệ Thống Quản Lý Hồ Sơ Công Dân Điện Tử";
+    Layout = "~/Areas/Authorities/Views/Shared/_LayoutCQ.cshtml";
+}
+
+
+    
+
+    <!-- Main Container -->
+    <div class="container mt-4">
+
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="mb-4">
+            <h2 class="my-4">Thống kê</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-header"><i class="fas fa-users"></i> Tổng số công dân</div>
+                        <div class="card-body">
+                            <h5 class="card-title">@ViewBag.TotalCD</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card text-white bg-info mb-3">
+                        <div class="card-header"><i class="fas fa-bell"></i> Thông báo đã gửi</div>
+                        <div class="card-body">
+                            <h5 class="card-title">@ViewBag.TotalSe</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+
+        <div class="container">
+            <h2 class="my-4">Thông tin cá nhân</h2>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th class="w-25">Họ và tên:</th>
+                        <td>@Model.Name</td>
+                    </tr>
+                    <tr>
+                        <th>Giới tính:</th>
+                        @if (Model.Sex == true)
+                        {
+                            <td>Nam</td>
+                        }
+                        else
+                        {
+                            <td>Nữ</td>
+
+                        }
+                    </tr>
+                    <tr>
+                        <th>Ngày sinh:</th>
+                        <td>@Model.Date_of_birth.Value.Day/@Model.Date_of_birth.Value.Month/@Model.Date_of_birth.Value.Year</td>
+                    </tr>
+                    <tr>
+                        <th>Quê quán:</th>
+                        <td>@Model.Place_of_origin</td>
+                    </tr>
+                    <tr>
+                        <th>Nơi cư trú:</th>
+                        <td>@Model.Place_of_residence</td>
+                    </tr>
+                    <tr>
+                        <th>Chức vụ:</th>
+                        <td>Cơ quan chính quyền tại @Model.City_or_province</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <hr />    
+    </div>
+    
+    <div class="container">
+        <h2 class="my-4" style="margin-left:15px;">Giới thiệu chính phủ</h2>
+        <div class="list-group">
+            <a href="~/Authorities/Home/CPDN" class="list-group-item list-group-item-action">
+                <span class="province-name" style="font-size: 20px;">Chính phủ đương nhiệm</span>
+            </a>
+            <div class="list-group-item list-group-item-action">
+                <p style="font-size: 20px;">Các tỉnh, Thành phố:</p>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Thành phố Hà Nội</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Thành phố Hồ Chí Minh</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh An Giang</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Bà Rịa - Vũng Tàu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Bạc Liêu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Bắc Giang</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Bắc Kạn</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Bắc Ninh</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Bến Tre</span>
+                    </a>
+
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Bình Dương</span>
+                    </a>
+
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Bình Định</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Bình Phước</span>
+                    </a>
+
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Bình Thuận</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Cao Bằng</span>
+                    </a>
+
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Cà Mau</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Thành phố Cần Thơ</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Thành phố Hải Phòng</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Thành phố Đà Nẵng</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Gia Lai</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Hòa Bình</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Hà Giang</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Hà Nam</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Hà Tĩnh</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Hưng Yên</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Hải Dương</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Hậu Giang</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Điện Biên</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Đắk Lắk</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Đắk Nông</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Đồng Nai</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Đồng Tháp</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Khánh Hòa</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Kiên Giang</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Kon Tum</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Lai Châu</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Long An</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Lào Cai</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Lâm Đồng</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Lạng Sơn</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Nam Định</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Nghệ An</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Ninh Bình</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Ninh Thuận</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Phú Thọ</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Phú Yên</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Quảng Bình</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Quảng Nam</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Quảng Ngãi</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Quảng Ninh</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Quảng Trị</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Sóc Trăng</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Sơn La</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Thanh Hóa</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Thái Bình</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Thái Nguyên</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Thừa Thiên - Huế</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Tiền Giang</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Trà Vinh</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Tuyên Quang</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Tây Ninh</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Vĩnh Long</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Vĩnh Phúc</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <span class="icon"></span>
+                        <span class="province-name">Tỉnh Yên Bái</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 

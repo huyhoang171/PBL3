@@ -1,0 +1,62 @@
+﻿@model IEnumerable<AppPBL3.Models.appointment_schedule>
+
+@{
+    ViewBag.Title = "Lịch Hẹn";
+    Layout = "~/Views/Shared/_LayoutCD.cshtml";
+}
+
+<h2 class="title-lh">Danh sách các lịch hẹn của tôi</h2>
+
+<p class="p-lh">
+    @Html.ActionLink("Tạo lịch hẹn", "Add")
+</p>
+<table class="table-lh">
+    <tr>
+        <th>
+            Ngày gửi
+        </th>
+        <th>
+            Ngày hẹn
+        </th>
+        <th>
+            Tình trạng
+        </th>
+        <th>
+            Mục đích cuộc hẹn
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Date_send.Value.Day/@item.Date_send.Value.Month/@item.Date_send.Value.Year
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time_start)
+        </td>
+        
+        @if(item.Solved == true)
+        {
+             <td>Đã giải quyết</td>
+        }
+        else
+        {
+            <td>Chưa giải quyết</td>
+        }
+        <td>
+            @Html.DisplayFor(modelItem => item.Purport)
+        </td>
+        <td>
+            @if (item.Solved == false && item.Time_start > DateTime.Now)
+            {
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.Id })
+                <span> | </span>
+                @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+            }
+
+        </td>
+    </tr>
+}
+
+</table>

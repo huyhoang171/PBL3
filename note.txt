@@ -1,0 +1,32 @@
+--Cơ quan quản lý căn cước công dân thuộc bộ công an
+                     ||
+                     ||
+                     VV
+  Cơ quan quản lý căn cước công dân thuộc công an tỉnh/ thành phố
+
+-- trong required thì:
+     1 - thủ tục giải quyết khiếu nại lần đầu tại cấp tỉnh
+     2 - chỉnh sửa thông tin cá nhân
+     3 - thủ tục cấp giấy xác nhận tình trạng hôn nhân
+     4 - xác nhận thông tin về nơi cư trú
+
+-- role để chia phân quyền: 
+     CD - công dân
+     CQ - chính quyền
+     AD - admin
+
+-- Lịch hẹn của công dân:
+     . chưa được giải quyết thì cho phép xóa
+     lấy khoảng 30 records
+
+-- Thông báo:
+     .Id = Id_sender + Id_receiver + Id_notifi
+     lấy khoảng 30 records
+
+-- Đóng góp ý kiến:
+     . Type: 0 là chưa được cơ quan xem, 1 là được cơ quan xem.
+
+-- Quản lý công dân:
+     . Tìm kiếm công dân theo tên, số cccd, tỉnh
+
+

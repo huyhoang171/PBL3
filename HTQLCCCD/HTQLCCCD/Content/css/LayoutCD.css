@@ -1,0 +1,626 @@
+﻿.dichvu {
+    margin: 50px;
+    text-align: center;
+}
+.after-banner .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.after-banner .row {
+    display: flex;
+    width: 100%;
+}
+
+.after-banner .col-md-4, .after-banner .col-sm-4 {
+    flex: 1;
+    margin: 0 10px; /* Adds some spacing between items */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.after-banner .ab-item {
+    text-align: center;
+}
+
+.after-banner .ab-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.after-banner .ab-item h3 {
+    margin: 10px 0;
+}
+
+.after-banner .ab-item p {
+    margin: 0;
+}
+
+
+
+
+.text-danger {
+    color: red;
+
+}
+
+/*phần header*/
+body {
+    margin: 0; /* Loại bỏ khoảng trắng mặc định */
+    padding: 0; /* Loại bỏ padding mặc định */
+}
+
+header {
+    background-color: #ffeeaa;
+    background-image: url('/Content/img/bg-head-new.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.container_menu {
+    width: 100%; /* Chiều rộng tối đa của container menu */
+    margin: 0 auto; /* Canh giữa container menu */
+    text-align: center;
+}
+
+.menus {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #CC0000;
+}
+
+.menus li {
+    display: inline; /* Hiển thị menu theo chiều ngang */
+    margin-right: 10px;
+}
+
+.menus li a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px; /* Khoảng cách giữa các mục menu */
+}
+
+.menus li a:hover {
+    background-color: #555;
+}
+
+.logo-menus {
+    margin-left: 10px; /* Đặt khoảng cách lề trái cho .logo-menus */
+}
+.navbar-brand img {
+    margin-left:180px;
+    position: relative;
+    top: 5px;
+    max-width: 165px;
+}
+
+.brand-text {
+    display: inline-block;
+    margin-top: 30px;
+    color: #000000;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.logo-menus {
+    display: flex; /* Sử dụng flexbox */
+    align-items: center; /* Căn chính giữa theo chiều dọc */
+}
+
+.logo-menus a {
+    margin-right: 10px; /* Khoảng cách giữa phần tử <a> và <span> */
+}
+
+.parent-menu {
+    position: relative;
+    z-index: 10;
+}
+
+.sub-menu {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s; /* Thêm transition để tạo hiệu ứng mượt mà */
+    position: absolute;
+    top: 100%; /* Hiển thị menu con ngay phía dưới menu cha */
+    left: 0;
+    display: none;
+    background-color: rgba(204,0,0,0.8); /* Màu nền của menu con */
+    padding: 10px; /* Khoảng cách giữa các mục trong menu con */
+    width: 250px; /* Chiều rộng của menu con */
+    max-height: 200px; /* Chiều cao tối đa của menu con */
+    margin-top: 11px;
+    z-index:1 !important;
+}
+
+.parent-menu:hover .sub-menu {
+    visibility: visible;
+    opacity: 1;
+    
+    display: block;
+}
+
+
+/*footer*/
+footer {
+    margin-top: 80px;
+    padding: 50px 0;
+    background: #d65814;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+footer.ffoot {
+    margin-top: 0;
+}
+
+footer p {
+    font-size: 13px;
+    line-height: 25px;
+    color: #fff;
+}
+
+footer p a {
+    font-size: 13px;
+    line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.055em;
+    color: #fff;
+}
+
+footer p a:hover {
+    color: #a93c01;
+}
+
+footer .social {
+    color: #d3d3d3;
+}
+
+footer .copy-right {
+    margin-top: 5px;
+}
+
+/*Trang chủ công dân*/
+
+h4.text-uppercase.dbd-tieu-de {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "Roboto Bold", sans-serif;
+}
+
+.sen {
+    background-image: url('/Content/img/sen.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    padding: 40px 0;
+    position: relative;
+    height: 295px;
+    text-align: center;
+}
+
+.dieubacday {
+    color: #d71920;
+    font-weight: bold;
+    font-family: "Roboto Bold", sans-serif;
+    font-size: 15px;
+    top: -73px;
+    left: 0;
+}
+.list-dbhd {
+    list-style-type: none; /* Loại bỏ dấu đầu dòng */
+    padding-left: 0; /* Loại bỏ padding mặc định */
+}
+
+/*Xem trang cá nhân*/
+/* Reset CSS */
+body, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Styled table */
+.styled-table {
+    width: 93%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 20px; /* Khoảng cách từ tiêu đề đến bảng */
+    margin-left: 50px;
+    margin-right: auto;
+}
+
+.styled-table th,
+.styled-table td {
+    border: 1px solid #ddd; /* Độ dày và màu sắc của viền */
+    padding: 10px; /* Khoảng cách giữa nội dung và viền */
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.styled-table th {
+    background-color: #f2f2f2;
+    width: 200px;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #ddd;
+}
+
+.Title_Account {
+    margin-top: 40px; /* Khoảng cách từ tiêu đề trang đến tiêu đề thông tin cá nhân */
+    font-size: 24px; /* Kích thước tiêu đề */
+    text-align: center;
+}
+
+/*Trang cá nhân của người có tiền án*/
+/* Ẩn nội dung khi checkbox không được chọn */
+.expandable-content {
+    display: none;
+}
+
+/* Hiển thị nội dung khi checkbox được chọn */
+.expand-checkbox:checked ~ .expandable-content {
+    display: block;
+}
+
+/* Ẩn checkbox */
+.expand-checkbox {
+    display: none;
+}
+
+/* Tạo kiểu cho nhãn */
+.expand-label {
+    cursor: pointer;
+    /* Thêm kiểu khác nếu cần thiết */
+}
+
+/* Tạo kiểu cho nhãn */
+.expand-label {
+    cursor: pointer;
+    color: #007bff; /* Màu chữ */
+    transition: color 0.3s; /* Hiệu ứng màu khi hover */
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 50px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+/* Thay đổi màu chữ khi hover */
+.expand-label:hover {
+    color: #0056b3; /* Màu chữ khi hover */
+}
+
+
+
+
+/**/
+/*Thông tin lãnh đạo nhà nước*/
+/**/
+
+.Content ul li:first-child a {
+    color: #0077cc; /* Màu xanh nước biển */
+}
+
+.Content {
+    padding: 20px;
+}
+
+.Content ul {
+list-style-type: none;
+padding: 0;
+}
+
+.Content ul li {
+margin-bottom: 10px;
+}
+
+.Content ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.Content ul li p {
+    margin-bottom: 5px;
+}
+
+.province-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 80px;
+}
+
+.province-list .item {
+flex-basis: calc(100% / 3);
+margin-right: 20px;
+margin-bottom: 10px;
+}
+
+.province-list .item:last-child {
+    margin-right: 0;
+}
+
+.province-list .item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #0077cc;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    margin-right: 10px;
+}
+
+.province-list .item .province-name {
+    font-weight: bold;
+}
+
+/**/
+/*Yêu cầu*/
+/**/
+
+.Content-yc {
+    padding: 20px; /* Khoảng cách giữa nội dung và khung viền */
+    border-radius: 10px; /* Đường cong cho khung viền */
+}
+
+.title-yc {
+    background-color: lightyellow;
+    height: 70px;
+    align-items: center;
+    display: flex;
+}
+
+.title-yc h4 {
+    color: #333; /* Màu chữ cho tiêu đề */
+    font-size: 24px; /* Kích thước chữ cho tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách dưới của tiêu đề */
+    vertical-align: middle;
+    line-height: 25px;
+    font-weight: bold;
+    font-family: "Roboto Bold", sans-serif;
+    margin-left: 100px;
+}
+
+.list-tthc {
+    list-style-type: none; /* Ẩn dấu đầu dòng của danh sách */
+    padding: 0; /* Xóa khoảng cách bên trong của danh sách */
+}
+
+.list-tthc li {
+    margin-bottom: 20px; /* Khoảng cách giữa các mục trong danh sách */
+    margin-left: 80px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.icon-tthc {
+    /* Thêm đường viền, màu sắc và kích thước cho biểu tượng */
+    border: 1px solid #ccc;
+    width: 20px;
+    height: 25px;
+    display: inline-block; /* Hiển thị biểu tượng cùng một dòng với văn bản */
+    margin-right: 10px; /* Khoảng cách bên phải giữa biểu tượng và văn bản */
+    background-image: url('/Content/img/icon/icon-tt.png'); /* Đường dẫn đến tệp hình ảnh */
+    background-size: cover; /* Kích thước hình ảnh phù hợp với kích thước của phần tử */
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+    display: inline-block; /* Hiển thị biểu tượng là một phần tử inline-block để có thể đặt kích thước */
+}
+
+.tthc-name {
+    color: #666; /* Màu chữ cho tên thủ tục */
+    font-size: 18px; /* Kích thước chữ cho tên thủ tục */
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+    vertical-align: middle; /* Căn văn bản theo chiều dọc để nằm thẳng hàng với biểu tượng */
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.tthc-name:hover {
+    text-decoration: underline; /* Gạch chân khi di chuột qua liên kết */
+    color: #000; /* Màu chữ thay đổi khi di chuột qua liên kết */
+}
+
+/**/
+/*Chỉnh sửa thông tin cá nhân*/
+/**/
+
+.form-horizontal {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-horizontal h4 {
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Phần nhãn */
+.control-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Phần ô nhập liệu và select */
+.form-control,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Phần nút Gửi */
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Phần link "Back to List" */
+#back-to-list {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+#back-to-list:hover {
+    text-decoration: underline;
+}
+
+.acql{
+    margin-left: 350px;
+}
+
+/**/
+/*Lịch Hẹn*/
+/**/
+
+/* Định dạng tiêu đề */
+.title-lh {
+    color: #333; /* Màu chữ */
+    font-size: 24px; /* Cỡ chữ */
+    margin-bottom: 20px; /* Khoảng cách với phần tử dưới */
+    margin-left: 20px;
+}
+
+/* Định dạng đoạn văn bản phụ */
+.p-lh {
+    margin-bottom: 10px; /* Khoảng cách với phần tử dưới */
+}
+
+/* Định dạng bảng */
+.table-lh {
+    width: 100%; /* Chiều rộng của bảng */
+    border-collapse: collapse; /* Gộp viền các ô */
+}
+
+/* Định dạng dòng tiêu đề */
+.table-lh th {
+background-color: #f2f2f2; /* Màu nền */
+color: #333; /* Màu chữ */
+padding: 10px; /* Khoảng cách nội dung với viền */
+text-align: left; /* Căn lề nội dung */
+}
+
+/* Định dạng các ô dữ liệu */
+.table-lh td {
+padding: 10px; /* Khoảng cách nội dung với viền */
+border-bottom: 1px solid #ddd; /* Viền dưới cho từng ô */
+}
+
+/* Định dạng các liên kết */
+.table-lh a {
+color: #007bff; /* Màu chữ */
+text-decoration: none; /* Loại bỏ gạch chân */
+margin-right: 10px; /* Khoảng cách với phần tử bên cạnh */
+}
+
+/* Định dạng hover cho các liên kết */
+.table-lh a:hover {
+    text-decoration: underline; /* Gạch chân khi hover */
+}
+
+/**/
+/*Thông báo*/
+/**/
+
+.table-tt {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-tt th, .table-tt td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table-tt th {
+    background-color: #f2f2f2;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.table-tt tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-tt tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-tt td {
+    text-align: left;
+}
+
+.date-column {
+    color: #DC143C;
+    font-weight: bold;
+    text-align: center;
+}
+
+/**/
+/*Trang thông tin chính phủ*/
+/**/
+
+.container-cp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content-cp {
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-cpp {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100vh; /* Chiều cao của container là toàn bộ chiều cao của viewport */
+}
+
+.content-cpp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px; /* Khoảng cách giữa các div con */
+}
+
+.content-cpp > div {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}

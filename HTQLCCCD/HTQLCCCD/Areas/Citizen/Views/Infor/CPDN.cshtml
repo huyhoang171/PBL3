@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Chính Phủ Đương Nhiệm";
+    Layout = "~/Areas/Citizen/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center; margin-top: 50px;">Chính Phủ Việt Nam đương nhiệm</h2>
+<div style="margin-left: 50px; margin-bottom: 20px;">
+    @Html.ActionLink("Quay lại", "InfoCP")
+</div>
+
+<hr/>
+<div class="container-cp">
+    <div  class="content-cp" style="width: 300px; height: 480px">
+        @if (ViewBag.TT != null)
+        {
+            <img alt="Thủ Tướng Chính Phủ Việt Nam" src="~/Content/img/state_leaders/@ViewBag.TT.Photo" style="width: 200px; height: 250px;" />
+            <h4>Thủ Tướng Chính Phủ</h4>
+            <p>@ViewBag.TT.Name</p>
+            <p>Ngày sinh: @ViewBag.TT.Date_of_birth.Day/@ViewBag.TT.Date_of_birth.Month/@ViewBag.TT.Date_of_birth.Year</p>
+            <p>Quê quán:  @ViewBag.TT.Place_of_origin</p>
+            <p></p>
+        }
+        else
+        {
+
+        }
+    </div>
+    
+</div>
+<div class="container-cpp">
+    <div class="content-cpp">
+        @foreach (var item in ViewBag.PTT)
+        {
+            <div style="width: 300px; height: 480px">
+                <img alt="Phó Thủ Tướng Chính Phủ Việt Nam" src="~/Content/img/state_leaders/@item.Photo" style="width: 200px; height: 250px;" />
+                <h4>Phó Thủ Tướng Chính Phủ</h4>
+                <p>@item.Name</p>
+                <p>Ngày sinh: @item.Date_of_birth.Day/@item.Date_of_birth.Month/@item.Date_of_birth.Year</p>
+                <p>Quê quán:  @item.Place_of_origin</p>
+                <p></p>
+            </div>
+
+        }
+
+
+
+    </div>
+    
+</div>
+<hr />

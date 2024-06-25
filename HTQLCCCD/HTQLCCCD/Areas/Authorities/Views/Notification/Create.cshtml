@@ -1,0 +1,45 @@
+﻿@model HTQLCCCD.Models.notification
+
+@{
+    ViewBag.Title = "Tạo Thông Báo";
+    Layout = "~/Areas/Authorities/Views/Shared/_LayoutCQ.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Create","Notification",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Tạo thông báo</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+<div class="form-group">
+    <label class="control-label col-md-2">Nội dung</label>
+
+    <div class="col-md-12">
+        @Html.TextAreaFor(model => model.Purport, new { @class = "form-control", rows = "6", cols = "50" })
+        @Html.ValidationMessageFor(model => model.Purport, "", new { @class = "text-danger" })
+    </div>
+
+    <label class="control-label col-md-2"> Gửi đến</label>
+    <div class="col-md-12">
+        <input type="text" placeholder="Số CCCD" name="send" />
+        <p>(*)Gõ All thì sẽ đến tất cả công dân</p>
+    </div>
+
+</div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-12">
+            <input type="submit" value="Tạo" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại  ", "Index")
+</div>

@@ -1,0 +1,211 @@
+﻿@model IEnumerable<HTQLCCCD.Models.appointment_schedule>
+
+@{
+    ViewBag.Title = "Lịch Hẹn";
+    Layout = "~/Areas/Authorities/Views/Shared/_LayoutCQ.cshtml";
+    int i = 1;
+    int j = 1;
+    int t = 1;
+    List<HTQLCCCD.Models.appointment_schedule> la = Model.ToList();
+    la.Sort((x, y) => DateTime.Compare((DateTime)x.Time_start, (DateTime)y.Time_start));
+    }
+
+    <div style="max-width: 600px; margin: 20px auto; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <div style="background-color: #FF9933; color: #fff; padding: 20px; text-align: center; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+            <h2>Lịch Hẹn Sắp Tới</h2>
+        </div>
+        <div style="padding: 20px;">
+
+            @if (ViewBag.Upcoming == null)
+            {
+                <h4 style="text-align: center ">Không có lịch hẹn nào</h4>
+            }
+            else
+            {
+                <div style="margin-bottom: 10px; padding: 10px; background-color: #f0f0f0; border-radius: 4px;">
+
+                    <p style="margin-bottom: 0;">Ngày: @ViewBag.Upcoming.Time_start.Day/@ViewBag.Upcoming.Time_start.Month/@ViewBag.Upcoming.Time_start.Year</p>
+                    <p style="margin-bottom: 0;">Giờ: @ViewBag.Upcoming.Time_start.Hour:@ViewBag.Upcoming.Time_start.Minute</p>
+                    <p style="margin-bottom: 0;">Mục đính: @ViewBag.Upcoming.Purport</p>
+                </div>
+            }
+
+
+            <!-- Add more events as needed -->
+        </div>
+    </div>
+
+
+    <h3 style="margin-top: 50px; margin-left: 50px; margin-bottom: 30px;">Lịch hẹn cần giải quyết của công dân</h3>
+
+
+    <table class="table" style="margin-bottom: 50px;">
+        <tr>
+            <th>
+                Số TT
+            </th>
+            <th>
+                Số CCCD gửi
+            </th>
+            <th>
+                Họ và tên công dân
+            </th>
+            <th>
+                Ngày hẹn
+            </th>
+            <th>
+                Mục đích
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.Solved == false && item.Time_start >= DateTime.Now && item.Id_solver == null)
+            {
+                <tr>
+                    <td>
+                        @(i++)
+                    </td>
+
+                    <td>
+                        @item.citizen1.Number
+                    </td>
+                    <td>
+                        @item.citizen1.Name
+                    </td>
+                    <td>
+                        @item.Time_start.Value.Day/@item.Time_start.Value.Month/@item.Time_start.Value.Year
+                    </td>
+                    <td>
+                        @item.Purport
+                    </td>
+                    <td>
+                        @Html.ActionLink("Duyệt", "Approve", new { id = item.Id }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        }
+
+    </table>
+
+    <hr />
+
+    <h3 style="margin-top: 50px; margin-left: 50px; margin-bottom: 30px;">Lịch hẹn được duyệt bởi bạn</h3>
+
+
+    <table class="table" style="margin-bottom: 50px;">
+        <tr>
+            <th>
+                Số TT
+            </th>
+            <th>
+                Số CCCD gửi
+            </th>
+            <th>
+                Họ và tên công dân
+            </th>
+            <th>
+                Ngày hẹn
+            </th>
+            <th>
+                Mục đích
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in la)
+        {
+            if (item.Solved == false && item.Time_start >= DateTime.Now && item.Id_solver == ViewBag.Id)
+            {
+                <tr>
+                    <td>
+                        @(j++)
+                    </td>
+
+                    <td>
+                        @item.citizen1.Number
+                    </td>
+                    <td>
+                        @item.citizen1.Name
+                    </td>
+                    <td>
+                        @item.Time_start.Value.Day/@item.Time_start.Value.Month/@item.Time_start.Value.Year
+                    </td>
+                    <td>
+                        @item.Purport
+                    </td>
+                    <td>
+                        @Html.ActionLink("Đã giải quyết", "Solve", new { id = item.Id }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        }
+
+    </table>
+
+    <hr />
+
+
+
+    <input type="checkbox" id="expand-checkbox" class="expand-checkbox">
+    <label for="expand-checkbox" class="expand-label">Lịch hẹn đã giải quyết hoặc quá hạn</label>
+    <div class="expandable-content">
+        <table style="border-collapse: collapse; width: 80%; border: 1px solid #ddd; margin-left: auto; margin-right: auto;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="border: 1px solid #ddd; padding: 8px;">Số TT</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Số CCCD gửi</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Họ và tên công dân</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Ngày hẹn</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Mục đích</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Tình trạng</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.Solved == true || item.Time_start < DateTime.Now)
+                    {
+                        <tr>
+                            <td>
+                                @(t++)
+                            </td>
+
+                            <td>
+                                @item.citizen1.Number
+                            </td>
+                            <td>
+                                @item.citizen1.Name
+                            </td>
+                            <td>
+                                @item.Time_start.Value.Day/@item.Time_start.Value.Month/@item.Time_start.Value.Year
+                            </td>
+                            <td>
+                                @item.Purport
+                            </td>
+                            @if (item.Solved == true)
+                            {
+                                <td>Đã giải quyết</td>
+                            }
+                            else
+                            {
+                                <td>Chưa giải quyết</td>
+                            }
+                            <td>
+                                
+                                @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+
+                }
+
+            </tbody>
+        </table>
+    </div>

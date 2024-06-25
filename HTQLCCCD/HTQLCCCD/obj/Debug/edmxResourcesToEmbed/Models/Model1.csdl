@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HeThongQLCCCDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Id_user" Type="Int32" />
+    <Property Name="Id_admin" Type="Int32" />
+    <Property Name="Id_author" Type="Int32" />
+    <NavigationProperty Name="admin" Relationship="Self.FK__account__Id_admi__656C112C" FromRole="account" ToRole="admin" />
+    <NavigationProperty Name="admin1" Relationship="Self.FK__account__Id_admi__7B5B524B" FromRole="account" ToRole="admin" />
+    <NavigationProperty Name="authority" Relationship="Self.FK__account__Id_auth__66603565" FromRole="account" ToRole="authorities" />
+    <NavigationProperty Name="authority1" Relationship="Self.FK__account__Id_auth__7C4F7684" FromRole="account" ToRole="authorities" />
+    <NavigationProperty Name="citizen" Relationship="Self.FK__account__Id_user__6754599E" FromRole="account" ToRole="citizen" />
+    <NavigationProperty Name="citizen1" Relationship="Self.FK__account__Id_user__7D439ABD" FromRole="account" ToRole="citizen" />
+  </EntityType>
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="Boolean" />
+    <Property Name="Date_of_birth" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="accounts" Relationship="Self.FK__account__Id_admi__656C112C" FromRole="admin" ToRole="account" />
+    <NavigationProperty Name="accounts1" Relationship="Self.FK__account__Id_admi__7B5B524B" FromRole="admin" ToRole="account" />
+  </EntityType>
+  <EntityType Name="appointment_schedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_sender" Type="Int32" />
+    <Property Name="Id_solver" Type="Int32" />
+    <Property Name="Date_send" Type="DateTime" Precision="3" />
+    <Property Name="Time_start" Type="DateTime" Precision="3" />
+    <Property Name="Solved" Type="Boolean" />
+    <Property Name="Purport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="citizen" Relationship="Self.FK__appointme__Id_se__00200768" FromRole="appointment_schedule" ToRole="citizen" />
+    <NavigationProperty Name="citizen1" Relationship="Self.FK__appointme__Id_se__6A30C649" FromRole="appointment_schedule" ToRole="citizen" />
+    <NavigationProperty Name="authority" Relationship="Self.FK__appointme__Id_so__628FA481" FromRole="appointment_schedule" ToRole="authorities" />
+    <NavigationProperty Name="authority1" Relationship="Self.FK__appointme__Id_so__787EE5A0" FromRole="appointment_schedule" ToRole="authorities" />
+  </EntityType>
+  <EntityType Name="authority">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="Boolean" />
+    <Property Name="Date_of_birth" Type="DateTime" Precision="0" />
+    <Property Name="Place_of_origin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Place_of_residence" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City_or_province" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="accounts" Relationship="Self.FK__account__Id_auth__66603565" FromRole="authorities" ToRole="account" />
+    <NavigationProperty Name="accounts1" Relationship="Self.FK__account__Id_auth__7C4F7684" FromRole="authorities" ToRole="account" />
+    <NavigationProperty Name="appointment_schedule" Relationship="Self.FK__appointme__Id_so__628FA481" FromRole="authorities" ToRole="appointment_schedule" />
+    <NavigationProperty Name="appointment_schedule1" Relationship="Self.FK__appointme__Id_so__787EE5A0" FromRole="authorities" ToRole="appointment_schedule" />
+    <NavigationProperty Name="requirements" Relationship="Self.FK__requireme__Id_so__619B8048" FromRole="authorities" ToRole="requirement" />
+    <NavigationProperty Name="requirements1" Relationship="Self.FK__requireme__Id_so__778AC167" FromRole="authorities" ToRole="requirement" />
+    <NavigationProperty Name="sendings" Relationship="Self.FK__sending__Id_send__6477ECF3" FromRole="authorities" ToRole="sending" />
+    <NavigationProperty Name="sendings1" Relationship="Self.FK__sending__Id_send__7A672E12" FromRole="authorities" ToRole="sending" />
+  </EntityType>
+  <EntityType Name="citizen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="Boolean" />
+    <Property Name="Date_of_birth" Type="DateTime" Precision="0" />
+    <Property Name="Place_of_origin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Place_of_residence" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="job" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Married" Type="Boolean" />
+    <Property Name="Join_military" Type="Boolean" />
+    <Property Name="Father" Type="Int32" />
+    <Property Name="Mother" Type="Int32" />
+    <NavigationProperty Name="accounts" Relationship="Self.FK__account__Id_user__6754599E" FromRole="citizen" ToRole="account" />
+    <NavigationProperty Name="accounts1" Relationship="Self.FK__account__Id_user__7D439ABD" FromRole="citizen" ToRole="account" />
+    <NavigationProperty Name="appointment_schedule" Relationship="Self.FK__appointme__Id_se__00200768" FromRole="citizen" ToRole="appointment_schedule" />
+    <NavigationProperty Name="appointment_schedule1" Relationship="Self.FK__appointme__Id_se__6A30C649" FromRole="citizen" ToRole="appointment_schedule" />
+    <NavigationProperty Name="citizen1" Relationship="Self.FK__citizen__Father__4D94879B" FromRole="citizen" ToRole="citizen1" />
+    <NavigationProperty Name="citizen2" Relationship="Self.FK__citizen__Father__4D94879B" FromRole="citizen1" ToRole="citizen" />
+    <NavigationProperty Name="citizen11" Relationship="Self.FK__citizen__Mother__4E88ABD4" FromRole="citizen" ToRole="citizen1" />
+    <NavigationProperty Name="citizen3" Relationship="Self.FK__citizen__Mother__4E88ABD4" FromRole="citizen1" ToRole="citizen" />
+    <NavigationProperty Name="criminal_record" Relationship="Self.FK__criminal___Id_ci__60A75C0F" FromRole="citizen" ToRole="criminal_record" />
+    <NavigationProperty Name="criminal_record1" Relationship="Self.FK__criminal___Id_ci__76969D2E" FromRole="citizen" ToRole="criminal_record" />
+    <NavigationProperty Name="feedbacks" Relationship="Self.FK__feedback__Id_sen__68487DD7" FromRole="citizen" ToRole="feedback" />
+    <NavigationProperty Name="feedbacks1" Relationship="Self.FK__feedback__Id_sen__7E37BEF6" FromRole="citizen" ToRole="feedback" />
+    <NavigationProperty Name="requirements" Relationship="Self.FK__requireme__Id_se__693CA210" FromRole="citizen" ToRole="requirement" />
+    <NavigationProperty Name="requirements1" Relationship="Self.FK__requireme__Id_se__7F2BE32F" FromRole="citizen" ToRole="requirement" />
+    <NavigationProperty Name="sendings" Relationship="Self.FK__sending__Id_rece__01142BA1" FromRole="citizen" ToRole="sending" />
+    <NavigationProperty Name="sendings1" Relationship="Self.FK__sending__Id_rece__6B24EA82" FromRole="citizen" ToRole="sending" />
+  </EntityType>
+  <EntityType Name="criminal_record">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_citizen" Type="Int32" />
+    <Property Name="Crime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="citizen" Relationship="Self.FK__criminal___Id_ci__60A75C0F" FromRole="criminal_record" ToRole="citizen" />
+    <NavigationProperty Name="citizen1" Relationship="Self.FK__criminal___Id_ci__76969D2E" FromRole="criminal_record" ToRole="citizen" />
+  </EntityType>
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_sender" Type="Int32" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="Date_send" Type="DateTime" Precision="3" />
+    <Property Name="Purport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="citizen" Relationship="Self.FK__feedback__Id_sen__68487DD7" FromRole="feedback" ToRole="citizen" />
+    <NavigationProperty Name="citizen1" Relationship="Self.FK__feedback__Id_sen__7E37BEF6" FromRole="feedback" ToRole="citizen" />
+  </EntityType>
+  <EntityType Name="notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Purport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="sendings" Relationship="Self.FK__sending__Id_noti__6383C8BA" FromRole="notification" ToRole="sending" />
+    <NavigationProperty Name="sendings1" Relationship="Self.FK__sending__Id_noti__797309D9" FromRole="notification" ToRole="sending" />
+  </EntityType>
+  <EntityType Name="requirement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_sender" Type="Int32" />
+    <Property Name="Id_solver" Type="Int32" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="Date_send" Type="DateTime" Precision="3" />
+    <Property Name="Purport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Solved" Type="Boolean" />
+    <NavigationProperty Name="authority" Relationship="Self.FK__requireme__Id_so__619B8048" FromRole="requirement" ToRole="authorities" />
+    <NavigationProperty Name="authority1" Relationship="Self.FK__requireme__Id_so__778AC167" FromRole="requirement" ToRole="authorities" />
+    <NavigationProperty Name="citizen" Relationship="Self.FK__requireme__Id_se__693CA210" FromRole="requirement" ToRole="citizen" />
+    <NavigationProperty Name="citizen1" Relationship="Self.FK__requireme__Id_se__7F2BE32F" FromRole="requirement" ToRole="citizen" />
+  </EntityType>
+  <EntityType Name="sending">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Id_sender" />
+      <PropertyRef Name="Id_receiver" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id_sender" Type="Int32" Nullable="false" />
+    <Property Name="Id_receiver" Type="Int32" Nullable="false" />
+    <Property Name="Date_send" Type="DateTime" Precision="3" />
+    <Property Name="Id_notifi" Type="Int32" />
+    <NavigationProperty Name="authority" Relationship="Self.FK__sending__Id_send__6477ECF3" FromRole="sending" ToRole="authorities" />
+    <NavigationProperty Name="authority1" Relationship="Self.FK__sending__Id_send__7A672E12" FromRole="sending" ToRole="authorities" />
+    <NavigationProperty Name="citizen" Relationship="Self.FK__sending__Id_rece__01142BA1" FromRole="sending" ToRole="citizen" />
+    <NavigationProperty Name="citizen1" Relationship="Self.FK__sending__Id_rece__6B24EA82" FromRole="sending" ToRole="citizen" />
+    <NavigationProperty Name="notification" Relationship="Self.FK__sending__Id_noti__6383C8BA" FromRole="sending" ToRole="notification" />
+    <NavigationProperty Name="notification1" Relationship="Self.FK__sending__Id_noti__797309D9" FromRole="sending" ToRole="notification" />
+  </EntityType>
+  <EntityType Name="state_leaders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date_of_birth" Type="DateTime" Precision="0" />
+    <Property Name="Place_of_origin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__account__Id_admi__656C112C">
+    <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+    <End Role="account" Type="Self.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="Id_admin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__account__Id_admi__7B5B524B">
+    <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+    <End Role="account" Type="Self.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="Id_admin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__account__Id_auth__66603565">
+    <End Role="authorities" Type="Self.authority" Multiplicity="0..1" />
+    <End Role="account" Type="Self.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="authorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="Id_author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__account__Id_auth__7C4F7684">
+    <End Role="authorities" Type="Self.authority" Multiplicity="0..1" />
+    <End Role="account" Type="Self.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="authorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="Id_author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__account__Id_user__6754599E">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="account" Type="Self.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="Id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__account__Id_user__7D439ABD">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="account" Type="Self.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="Id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__appointme__Id_se__00200768">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="appointment_schedule" Type="Self.appointment_schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="appointment_schedule">
+        <PropertyRef Name="Id_sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__appointme__Id_se__6A30C649">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="appointment_schedule" Type="Self.appointment_schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="appointment_schedule">
+        <PropertyRef Name="Id_sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__appointme__Id_so__628FA481">
+    <End Role="authorities" Type="Self.authority" Multiplicity="0..1" />
+    <End Role="appointment_schedule" Type="Self.appointment_schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="authorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="appointment_schedule">
+        <PropertyRef Name="Id_solver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__appointme__Id_so__787EE5A0">
+    <End Role="authorities" Type="Self.authority" Multiplicity="0..1" />
+    <End Role="appointment_schedule" Type="Self.appointment_schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="authorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="appointment_schedule">
+        <PropertyRef Name="Id_solver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__requireme__Id_so__619B8048">
+    <End Role="authorities" Type="Self.authority" Multiplicity="0..1" />
+    <End Role="requirement" Type="Self.requirement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="authorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="requirement">
+        <PropertyRef Name="Id_solver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__requireme__Id_so__778AC167">
+    <End Role="authorities" Type="Self.authority" Multiplicity="0..1" />
+    <End Role="requirement" Type="Self.requirement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="authorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="requirement">
+        <PropertyRef Name="Id_solver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sending__Id_send__6477ECF3">
+    <End Role="authorities" Type="Self.authority" Multiplicity="1" />
+    <End Role="sending" Type="Self.sending" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="authorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="sending">
+        <PropertyRef Name="Id_sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sending__Id_send__7A672E12">
+    <End Role="authorities" Type="Self.authority" Multiplicity="1" />
+    <End Role="sending" Type="Self.sending" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="authorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="sending">
+        <PropertyRef Name="Id_sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__citizen__Father__4D94879B">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="citizen1" Type="Self.citizen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="citizen1">
+        <PropertyRef Name="Father" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__citizen__Mother__4E88ABD4">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="citizen1" Type="Self.citizen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="citizen1">
+        <PropertyRef Name="Mother" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__criminal___Id_ci__60A75C0F">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="criminal_record" Type="Self.criminal_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="criminal_record">
+        <PropertyRef Name="Id_citizen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__criminal___Id_ci__76969D2E">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="criminal_record" Type="Self.criminal_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="criminal_record">
+        <PropertyRef Name="Id_citizen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__feedback__Id_sen__68487DD7">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="feedback" Type="Self.feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="feedback">
+        <PropertyRef Name="Id_sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__feedback__Id_sen__7E37BEF6">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="feedback" Type="Self.feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="feedback">
+        <PropertyRef Name="Id_sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__requireme__Id_se__693CA210">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="requirement" Type="Self.requirement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="requirement">
+        <PropertyRef Name="Id_sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__requireme__Id_se__7F2BE32F">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="0..1" />
+    <End Role="requirement" Type="Self.requirement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="requirement">
+        <PropertyRef Name="Id_sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sending__Id_rece__01142BA1">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="1" />
+    <End Role="sending" Type="Self.sending" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="sending">
+        <PropertyRef Name="Id_receiver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sending__Id_rece__6B24EA82">
+    <End Role="citizen" Type="Self.citizen" Multiplicity="1" />
+    <End Role="sending" Type="Self.sending" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="sending">
+        <PropertyRef Name="Id_receiver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sending__Id_noti__6383C8BA">
+    <End Role="notification" Type="Self.notification" Multiplicity="0..1" />
+    <End Role="sending" Type="Self.sending" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="notification">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="sending">
+        <PropertyRef Name="Id_notifi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sending__Id_noti__797309D9">
+    <End Role="notification" Type="Self.notification" Multiplicity="0..1" />
+    <End Role="sending" Type="Self.sending" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="notification">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="sending">
+        <PropertyRef Name="Id_notifi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HeThongQLCCCDEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accounts" EntityType="Self.account" />
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="appointment_schedule" EntityType="Self.appointment_schedule" />
+    <EntitySet Name="authorities" EntityType="Self.authority" />
+    <EntitySet Name="citizens" EntityType="Self.citizen" />
+    <EntitySet Name="criminal_record" EntityType="Self.criminal_record" />
+    <EntitySet Name="feedbacks" EntityType="Self.feedback" />
+    <EntitySet Name="notifications" EntityType="Self.notification" />
+    <EntitySet Name="requirements" EntityType="Self.requirement" />
+    <EntitySet Name="sendings" EntityType="Self.sending" />
+    <EntitySet Name="state_leaders" EntityType="Self.state_leaders" />
+    <AssociationSet Name="FK__account__Id_admi__656C112C" Association="Self.FK__account__Id_admi__656C112C">
+      <End Role="admin" EntitySet="admins" />
+      <End Role="account" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__account__Id_admi__7B5B524B" Association="Self.FK__account__Id_admi__7B5B524B">
+      <End Role="admin" EntitySet="admins" />
+      <End Role="account" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__account__Id_auth__66603565" Association="Self.FK__account__Id_auth__66603565">
+      <End Role="authorities" EntitySet="authorities" />
+      <End Role="account" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__account__Id_auth__7C4F7684" Association="Self.FK__account__Id_auth__7C4F7684">
+      <End Role="authorities" EntitySet="authorities" />
+      <End Role="account" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__account__Id_user__6754599E" Association="Self.FK__account__Id_user__6754599E">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="account" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__account__Id_user__7D439ABD" Association="Self.FK__account__Id_user__7D439ABD">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="account" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__appointme__Id_se__00200768" Association="Self.FK__appointme__Id_se__00200768">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="appointment_schedule" EntitySet="appointment_schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK__appointme__Id_se__6A30C649" Association="Self.FK__appointme__Id_se__6A30C649">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="appointment_schedule" EntitySet="appointment_schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK__appointme__Id_so__628FA481" Association="Self.FK__appointme__Id_so__628FA481">
+      <End Role="authorities" EntitySet="authorities" />
+      <End Role="appointment_schedule" EntitySet="appointment_schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK__appointme__Id_so__787EE5A0" Association="Self.FK__appointme__Id_so__787EE5A0">
+      <End Role="authorities" EntitySet="authorities" />
+      <End Role="appointment_schedule" EntitySet="appointment_schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK__requireme__Id_so__619B8048" Association="Self.FK__requireme__Id_so__619B8048">
+      <End Role="authorities" EntitySet="authorities" />
+      <End Role="requirement" EntitySet="requirements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__requireme__Id_so__778AC167" Association="Self.FK__requireme__Id_so__778AC167">
+      <End Role="authorities" EntitySet="authorities" />
+      <End Role="requirement" EntitySet="requirements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sending__Id_send__6477ECF3" Association="Self.FK__sending__Id_send__6477ECF3">
+      <End Role="authorities" EntitySet="authorities" />
+      <End Role="sending" EntitySet="sendings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sending__Id_send__7A672E12" Association="Self.FK__sending__Id_send__7A672E12">
+      <End Role="authorities" EntitySet="authorities" />
+      <End Role="sending" EntitySet="sendings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__citizen__Father__4D94879B" Association="Self.FK__citizen__Father__4D94879B">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="citizen1" EntitySet="citizens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__citizen__Mother__4E88ABD4" Association="Self.FK__citizen__Mother__4E88ABD4">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="citizen1" EntitySet="citizens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__criminal___Id_ci__60A75C0F" Association="Self.FK__criminal___Id_ci__60A75C0F">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="criminal_record" EntitySet="criminal_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK__criminal___Id_ci__76969D2E" Association="Self.FK__criminal___Id_ci__76969D2E">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="criminal_record" EntitySet="criminal_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK__feedback__Id_sen__68487DD7" Association="Self.FK__feedback__Id_sen__68487DD7">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="feedback" EntitySet="feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__feedback__Id_sen__7E37BEF6" Association="Self.FK__feedback__Id_sen__7E37BEF6">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="feedback" EntitySet="feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__requireme__Id_se__693CA210" Association="Self.FK__requireme__Id_se__693CA210">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="requirement" EntitySet="requirements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__requireme__Id_se__7F2BE32F" Association="Self.FK__requireme__Id_se__7F2BE32F">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="requirement" EntitySet="requirements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sending__Id_rece__01142BA1" Association="Self.FK__sending__Id_rece__01142BA1">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="sending" EntitySet="sendings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sending__Id_rece__6B24EA82" Association="Self.FK__sending__Id_rece__6B24EA82">
+      <End Role="citizen" EntitySet="citizens" />
+      <End Role="sending" EntitySet="sendings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sending__Id_noti__6383C8BA" Association="Self.FK__sending__Id_noti__6383C8BA">
+      <End Role="notification" EntitySet="notifications" />
+      <End Role="sending" EntitySet="sendings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sending__Id_noti__797309D9" Association="Self.FK__sending__Id_noti__797309D9">
+      <End Role="notification" EntitySet="notifications" />
+      <End Role="sending" EntitySet="sendings" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

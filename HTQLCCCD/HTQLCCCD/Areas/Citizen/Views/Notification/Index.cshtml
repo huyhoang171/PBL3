@@ -1,0 +1,41 @@
+﻿@model IEnumerable<HTQLCCCD.Models.SystemHP.mapNotification>
+
+@{
+    ViewBag.Title = "Thông báo";
+    Layout = "~/Areas/Citizen/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-left: 60px;">Thông báo</h2>
+
+
+<table class="table-tt">
+    <tr>
+        <th>
+            Ngày gửi
+        </th>
+        <th>
+            Nội dung
+        </th>
+
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td class="date-column">
+                    @item.DateTime.Day/@item.DateTime.Month/@item.DateTime.Year
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purport)
+                </td>
+
+            </tr>
+        }
+
+    }
+
+
+
+</table>

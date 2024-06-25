@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HeThongQLCCCDModelStoreContainer" CdmEntityContainer="HeThongQLCCCDEntities2">
+    <EntitySetMapping Name="accounts">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User_name" ColumnName="User_name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+          <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+          <ScalarProperty Name="Id_author" ColumnName="Id_author" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="appointment_schedule">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.appointment_schedule">
+        <MappingFragment StoreEntitySet="appointment_schedule">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_sender" ColumnName="Id_sender" />
+          <ScalarProperty Name="Id_solver" ColumnName="Id_solver" />
+          <ScalarProperty Name="Date_send" ColumnName="Date_send" />
+          <ScalarProperty Name="Time_start" ColumnName="Time_start" />
+          <ScalarProperty Name="Solved" ColumnName="Solved" />
+          <ScalarProperty Name="Purport" ColumnName="Purport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="authorities">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.authority">
+        <MappingFragment StoreEntitySet="authorities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+          <ScalarProperty Name="Place_of_origin" ColumnName="Place_of_origin" />
+          <ScalarProperty Name="Place_of_residence" ColumnName="Place_of_residence" />
+          <ScalarProperty Name="City_or_province" ColumnName="City_or_province" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="citizens">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.citizen">
+        <MappingFragment StoreEntitySet="citizen">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+          <ScalarProperty Name="Place_of_origin" ColumnName="Place_of_origin" />
+          <ScalarProperty Name="Place_of_residence" ColumnName="Place_of_residence" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="Married" ColumnName="Married" />
+          <ScalarProperty Name="Join_military" ColumnName="Join_military" />
+          <ScalarProperty Name="Father" ColumnName="Father" />
+          <ScalarProperty Name="Mother" ColumnName="Mother" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="criminal_record">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.criminal_record">
+        <MappingFragment StoreEntitySet="criminal_record">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_citizen" ColumnName="Id_citizen" />
+          <ScalarProperty Name="Crime" ColumnName="Crime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedbacks">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.feedback">
+        <MappingFragment StoreEntitySet="feedback">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_sender" ColumnName="Id_sender" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Date_send" ColumnName="Date_send" />
+          <ScalarProperty Name="Purport" ColumnName="Purport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notifications">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.notification">
+        <MappingFragment StoreEntitySet="notification">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Purport" ColumnName="Purport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="requirements">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.requirement">
+        <MappingFragment StoreEntitySet="requirement">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_sender" ColumnName="Id_sender" />
+          <ScalarProperty Name="Id_solver" ColumnName="Id_solver" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Date_send" ColumnName="Date_send" />
+          <ScalarProperty Name="Purport" ColumnName="Purport" />
+          <ScalarProperty Name="Solved" ColumnName="Solved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sendings">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.sending">
+        <MappingFragment StoreEntitySet="sending">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_sender" ColumnName="Id_sender" />
+          <ScalarProperty Name="Id_receiver" ColumnName="Id_receiver" />
+          <ScalarProperty Name="Date_send" ColumnName="Date_send" />
+          <ScalarProperty Name="Id_notifi" ColumnName="Id_notifi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="state_leaders">
+      <EntityTypeMapping TypeName="HeThongQLCCCDModel.state_leaders">
+        <MappingFragment StoreEntitySet="state_leaders">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+          <ScalarProperty Name="Place_of_origin" ColumnName="Place_of_origin" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

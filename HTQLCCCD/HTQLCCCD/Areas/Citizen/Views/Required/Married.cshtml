@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Thủ Tục Cấp Giấy Xác Nhận Tình Trạng Hôn Nhân";
+    Layout = "~/Areas/Citizen/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center; margin-top: 50px;">Thủ tục cấp giấy xác nhận tình trạng hôn nhân</h2>
+
+<input type="checkbox" id="expand-checkbox" class="expand-checkbox">
+<label for="expand-checkbox" class="expand-label" style="font-size: 20px;">Trình tự thực hiện</label>
+<div class="expandable-content" style="text-align: justify; margin-left: 50px; margin-right: 50px;">
+    <hr />
+    <p>- Nếu lựa chọn hình thức nộp hồ sơ trực tiếp, người có yêu cầu cấp Giấy xác nhận tình trạng hôn nhân nộp hồ sơ yêu cầu cấp Giấy xác nhận tình trạng hôn nhân tại Bộ phận một cửa của UBND cấp xã có thẩm quyền; nộp lệ phí nếu thuộc trường hợp phải nộp lệ phí cấp Giấy xác nhận tình trạng hôn nhân.</p>
+    <p>- Nếu lựa chọn hình thức nộp hồ sơ trực tuyến, người có yêu cầu cấp Giấy xác nhận tình trạng hôn nhân truy cập Cổng dịch vụ công quốc gia hoặc Cổng dịch vụ công cấp tỉnh, đăng ký tài khoản (nếu chưa có tài khoản), xác thực người dùng theo hướng dẫn, đăng nhập vào hệ thống, xác định đúng Ủy ban nhân dân cấp xã có thẩm quyền.</p>
+    <p>Người có yêu cầu cấp Giấy xác nhận tình trạng hôn nhân trực tuyến cung cấp thông tin theo biểu mẫu hộ tịch điện tử tương tác cấp Giấy xác nhận tình trạng hôn nhân (cung cấp trên Cổng dịch vụ công), đính kèm bản chụp hoặc bản sao điện tử các giấy tờ, tài liệu theo quy định; nộp phí, lệ phí thông qua chức năng thanh toán trực tuyến hoặc bằng cách thức khác theo quy định pháp luật, hoàn tất việc nộp hồ sơ.</p>
+    <p>- Cán bộ tiếp nhận hồ sơ tại Bộ phận một cửa có trách nhiệm kiểm tra tính chính xác, đầy đủ, thống nhất, hợp lệ của hồ sơ.</p>
+    <p>(i) Trường hợp hồ sơ đầy đủ, hợp lệ thì tiếp nhận hồ sơ; nếu tiếp nhận hồ sơ sau 15 giờ thì có Phiếu hẹn, trả kết quả cho người có yêu cầu trong ngày làm việc tiếp theo (nếu người có yêu cầu lựa chọn hình thức nộp hồ sơ trực tiếp) hoặc gửi ngay Phiếu hẹn, trả kết quả qua thư điện tử hoặc gửi tin nhắn hẹn trả kết quả qua điện thoại di động cho người có yêu cầu (nếu người có yêu cầu lựa chọn hình thức nộp hồ sơ trực tuyến); chuyển hồ sơ để công chức làm công tác hộ tịch xử lý.</p>
+    <p>- Sau khi tiếp nhận hồ sơ theo hình thức nộp trực tiếp, cán bộ tiếp nhận hồ sơ tại Bộ phận một cửa thực hiện số hóa (sao chụp, chuyển thành tài liệu điện tử trên hệ thống thông tin, cơ sở dữ liệu) và ký số vào tài liệu, hồ sơ giải quyết thủ tục hành chính đã được số hóa theo quy định.</p>
+    <p>(ii) Trường hợp hồ sơ chưa đầy đủ, hợp lệ thì có thông báo cho người yêu cầu bổ sung, hoàn thiện hồ sơ, nêu rõ loại giấy tờ, nội dung cần bổ sung để người có yêu cầu bổ sung, hoàn thiện. Sau khi hồ sơ được bổ sung, thực hiện lại bước (i);</p>
+    <p>(iii) Nếu người có yêu cầu cấp Giấy xác nhận tình trạng hôn nhân không bổ sung, hoàn thiện được hồ sơ thì báo cáo Trưởng bộ phận tiếp nhận hồ sơ có văn bản từ chối giải quyết yêu cầu cấp Giấy xác nhận tình trạng hôn nhân.</p>
+    <p>- Công chức tư pháp - hộ tịch thẩm tra hồ sơ (thẩm tra tính thống nhất, hợp lệ của các thông tin trong hồ sơ, giấy tờ, tài liệu đính kèm).</p>
+    <p>+ Trường hợp hồ sơ cần bổ sung, hoàn thiện hoặc không đủ điều kiện giải quyết, phải từ chối thì gửi thông báo về tình trạng hồ sơ tới Bộ phận một cửa để thông báo cho người nộp hồ sơ – thực hiện lại bước (ii) hoặc (iii);</p>
+    <p>+ Trường hợp cần phải kiểm tra, xác minh làm rõ hoặc do nguyên nhân khác mà không thể trả kết quả đúng thời gian đã hẹn thì công chức làm công tác hộ tịch lập Phiếu xin lỗi và hẹn lại ngày trả kết quả, trong đó nêu rõ lý do chậm trả kết quả và thời gian hẹn trả kết quả, chuyển Bộ phận một cửa để trả cho người có yêu cầu (nếu người có yêu cầu lựa chọn hình thức nộp hồ sơ trực tiếp), hoặc gửi Phiếu xin lỗi và hẹn lại ngày trả kết quả qua thư điện tử hoặc gửi tin nhắn qua điện thoại di động cho người có yêu cầu (nếu người có yêu cầu lựa chọn hình thức nộp hồ sơ trực tuyến).</p>
+    <p>* Trường hợp người yêu cầu xác nhận tình trạng hôn nhân đã từng đăng ký thường trú tại nhiều nơi khác nhau thì người đó có trách nhiệm chứng minh về tình trạng hôn nhân của mình. Trường hợp người yêu cầu không chứng minh được thì công chức tư pháp - hộ tịch báo cáo Chủ tịch Ủy ban nhân dân cấp xã có văn bản đề nghị Ủy ban nhân dân cấp xã nơi người đó đã từng đăng ký thường trú tiến hành kiểm tra, xác minh về tình trạng hôn nhân của người đó.</p>
+    <p>Sau khi nhận được văn bản đề nghị, Ủy ban nhân dân cấp xã được yêu cầu, tiến hành kiểm tra, xác minh và trả lời bằng văn bản về tình trạng hôn nhân trong thời gian thường trú tại địa phương của người có yêu cầu.</p>
+    <p>Nếu kết quả kiểm tra, xác minh cho thấy người yêu cầu có đủ điều kiện, việc cấp Giấy xác nhận tình trạng hôn nhân là phù hợp quy định pháp luật hoặc sau thời hạn 20 ngày kể từ ngày gửi văn bản yêu cầu xác minh mà không nhận được văn bản trả lời thì cho phép người yêu cầu cấp Giấy xác nhận tình trạng hôn nhân có văn bản cam đoan về tình trạng hôn nhân của mình.</p>
+    <p>* Trường hợp người yêu cầu cấp lại Giấy xác nhận tình trạng hôn nhân để kết hôn mà không nộp lại được Giấy xác nhận tình trạng hôn nhân đã được cấp trước đây, thì người yêu cầu phải trình bày rõ lý do không nộp lại được Giấy xác nhận tình trạng hôn nhân. Trong thời hạn 03 ngày làm việc kể từ ngày tiếp nhận hồ sơ, cơ quan đăng ký hộ tịch có văn bản trao đổi với nơi dự định đăng ký kết hôn trước đây để xác minh. Trường hợp không xác minh được hoặc không nhận được kết quả xác minh thì cơ quan đăng ký hộ tịch cho phép người yêu cầu lập văn bản cam đoan về tình trạng hôn nhân.</p>
+    <p>- Trường hợp tiếp nhận hồ sơ cấp Giấy xác nhận tình trạng hôn nhân theo hình thức trực tiếp, thì công chức tư pháp - hộ tịch thực hiện việc cập nhật thông tin xác nhận tình trạng hôn nhân và lưu chính thức trên Phần mềm đăng ký, quản lý hộ tịch điện tử dùng chung.</p>
+    <p>Trường hợp tiếp nhận hồ sơ xác nhận tình trạng hôn nhân theo hình thức trực tuyến, công chức tư pháp - hộ tịch gửi lại biểu mẫu Giấy xác nhận tình trạng hôn nhân điện tử với thông tin đầy đủ cho người yêu cầu qua thư điện tử hoặc thiết bị số.</p>
+    <p>Người yêu cầu có trách nhiệm kiểm tra tính chính xác, đầy đủ của các thông tin trên biểu mẫu Giấy xác nhận tình trạng hôn nhân điện tử và xác nhận (tối đa một ngày).</p>
+    <p>Nếu người có yêu cầu xác nhận thông tin đã thống nhất, đầy đủ hoặc không có phản hồi sau thời hạn yêu cầu thì công chức tư pháp - hộ tịch cập nhật thông tin xác nhận tình trạng hôn nhân và lưu chính thức trên Phần mềm đăng ký, quản lý hộ tịch điện tử dùng chung.</p>
+    <p>- Công chức tư pháp - hộ tịch in Giấy xác nhận tình trạng hôn nhân, trình Lãnh đạo UBND ký, chuyển tới Bộ phận một cửa để trả kết quả cho người có yêu cầu.</p>
+    <p>- Người có yêu cầu cấp Giấy xác nhận tình trạng hôn nhân kiểm tra thông tin trên Giấy xác nhận tình trạng hôn nhân, nhận Giấy xác nhận tình trạng hôn nhân.</p>
+
+</div>
+<hr />
+<h3 style="margin-left: 50px;">Thành phần hồ sơ</h3>
+<table class="table-lh" style="margin-bottom: 50px;">
+    <thead>
+        <tr>
+            <th>Tên giấy tờ</th>
+            <th>Mẫu đơn, tờ khai</th>
+            <th>Số lượng</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Tờ khai cấp Giấy xác nhận tình trạng hôn nhân</td>
+            <td><a href="~/Content/file/File2.doc" download="TK cấp Giấy XNTTHN.doc">TK cấp Giấy XNTTHN.doc</a></td>
+            <td>Bản chính: 1 - Bản sao: 0</td>
+        </tr>
+    </tbody>
+</table>
+<hr />
+<div style="margin-left: 50px; margin-bottom: 20px;">
+    <h3>Cơ quan thực hiện</h3>
+    <p>Ủy ban nhân dân cấp xã</p>
+
+</div>
+<hr />
+<div style="margin-left: 50px; margin-bottom: 20px;">
+    <h3>Yêu cầu, điều kiện thực hiện</h3>
+    <p>Trường hợp yêu cầu xác nhận tình trạng hôn nhân nhằm mục đích kết hôn thì người yêu cầu phải đáp ứng đủ điều kiện kết hôn:</p>
+    <p>- Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên;</p>
+    <p>- Việc kết hôn do nam và nữ tự nguyện quyết định;</p>
+    <p>- Không bị mất năng lực hành vi dân sự;</p>
+    <p>- Việc kết hôn không thuộc một trong các trường hợp cấm kết hôn, gồm:</p>
+    <p>+ Kết hôn giả tạo, ly hôn giả tạo;</p>
+    <p>+ Tảo hôn, cưỡng ép kết hôn, lừa dối kết hôn, cản trở kết hôn;</p>
+    <p>+ Người đang có vợ, có chồng mà kết hôn với người khác hoặc chưa có vợ, chưa có chồng mà kết hôn với người đang có chồng, có vợ;</p>
+    <p>+ Kết hôn giữa những người cùng dòng máu về trực hệ; giữa những người có họ trong phạm vi ba đời; giữa cha, mẹ nuôi với con nuôi; giữa người đã từng là cha, mẹ nuôi với con nuôi, cha chồng với con dâu, mẹ vợ với con rể, cha dượng với con riêng của vợ, mẹ kế với con riêng của chồng.</p>
+    <p>- Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính.</p>
+    <p>Trường hợp yêu cầu cấp Giấy xác nhận tình trạng hôn nhân để sử dụng vào mục đích khác, không phải để đăng ký kết hôn, thì người yêu cầu không phải đáp ứng điều kiện kết hôn.</p>
+</div>
+<div style="margin-left: 60px; margin-top: 30px;">
+    @Html.ActionLink("Quay lại", "Index")
+
+</div>

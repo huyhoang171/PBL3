@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+
+
+    <!--LayoutCD.css-->
+    <link rel="stylesheet" href="~/Content/css/LayoutCD.css" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico">
+
+
+</head>
+<body>
+    <header>
+        <div class="container_menu">
+            <div class="logo-menus ">
+                <a class="navbar-brand" href="#"><img class="img-responsive" src="~/Content/img/logo_2.png" alt="Logo" /></a>
+                <span class="brand-text">Hệ Thống Quản Lý Hồ Sơ Công Dân Điện Tử</span>
+            </div>
+            <menu class="menus">
+                <li><a href="~/Citizen/Home/Index">Trang chủ</a></li>
+                <li class="parent-menu">
+                    <a href="~/Citizen/Infor/Index">Thông tin cá nhân</a>
+                    <ul class="sub-menu">
+                        <li><a href="~/Citizen/Infor/Index">Thông tin cá nhân</a></li>
+                        <li><a href="~/Citizen/Infor/InfoCP">Thông tin lãnh đạo nhà nước</a></li>
+                    </ul>
+                </li>
+                <li><a href="~/Citizen/Required/Index">Dịch vụ công</a></li>
+                <li><a href="~/Citizen/Appointment/Index">Lịch hẹn</a></li>
+                <li class="parent-menu">
+                    <a href="~/Citizen/Notification/Index">Thông báo</a>
+                </li>
+                <li><a href="~/Citizen/Feedback/Index">Đóng góp ý kiến</a></li>
+                <li><a href="~/Home/Logout">Đăng xuất</a></li>
+
+            </menu>
+        </div>
+    </header>
+    <div>
+
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="container">
+
+            <p><a href="#">Home</a></p>
+            <div class="social">
+                <h5>Team executing:</h5>
+                <p>Đặng Ngọc Huy Hoàng</p>
+                <p>Hoàng Văn Đức</p>
+                <p>Trần Bi Tôn</p>
+                <p>Cao Đình Thành</p>
+            </div>
+            <!-- copy right -->
+            <!-- This theme comes under Creative Commons Attribution 4.0 Unported. So don't remove below link back -->
+            <p class="mb-0">&copy; 2024 Hệ Thống Quản Lý Hồ Sơ Công Dân Điện Tử.</p>
+            <p>Email liên hệ: hoang01228590435@gmail.com</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<HTQLCCCD.Models.sending>
+
+@{
+    ViewBag.Title = "Gửi Thông Báo";
+    Layout = "~/Areas/Authorities/Views/Shared/_LayoutCQ.cshtml";
+    int i = 1;
+}
+
+
+<div style="margin-top: 40px; margin-left: 30px;">
+    <p>
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+
+    <p>
+        @Html.ActionLink("Gửi đến tất cả", "SendToAll", new {id = ViewBag.id})
+    </p>
+
+</div>
+
+
+
+
+<div class="container">
+    <h3 class="my-4">Gửi đến công dân</h3>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <form class="d-flex" action="~/Authorities/Notification/SendTo" method="post">
+        <input type="text" class="form-control mr-2" id="searchInput" placeholder="Nhập từ khóa là số CCCD." name="s">
+        <input type="hidden" value="@ViewBag.id" name="d" />
+        <button type="submit" class="btn btn-primary" style="width: 200px; height: 38px;">Gửi</button>
+    </form>
+</div>
+<h2>Công dân đã gửi</h2>
+<table class="table">
+    <tr>
+        <th>
+            Số TT
+        </th>
+        <th>
+            Số CCCD
+        </th>
+        <th>
+            Họ và tên
+        </th>
+        <th>
+            Ngày gửi
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @(i++)
+        </td>
+        <td>
+            @item.citizen1.Number
+        </td>
+        <td>
+            @item.citizen1.Name
+        </td>
+        <td>
+            @item.Date_send.Value.Day/@item.Date_send.Value.Month/@item.Date_send.Value.Year
+        </td>
+       
+        <td>
+            
+            @Html.ActionLink("Xóa", "DeleteSend", new { id=item.Id, id_notifi = ViewBag.id })
+        </td>
+    </tr>
+}
+
+</table>

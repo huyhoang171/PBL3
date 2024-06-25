@@ -1,0 +1,52 @@
+﻿@model IEnumerable<HTQLCCCD.Models.feedback>
+
+@{
+    ViewBag.Title = "Ý Kiến Đóng Góp Của Công Dân";
+    Layout = "~/Areas/Authorities/Views/Shared/_LayoutCQ.cshtml";
+    int i = 1;
+}
+
+<h2 style="text-align:center; margin: 30px;">Ý kiến đóng góp</h2>
+
+<div style="margin-bottom: 30px; margin-left: 50px;">
+    @Html.ActionLink("Quay lại", "Index")
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Số TT
+        </th>
+        <th>
+            Số CCCD gửi 
+        </th>
+        <th>
+            Họ và tên công dân
+        </th>
+        <th>
+            Nội dung
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @(i++)
+        </td>
+        <td>
+            @item.citizen1.Number
+        </td>
+        <td>
+            @item.citizen1.Name
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Purport)
+        </td>
+        <td>
+            @Html.ActionLink("Xóa", "Deletefb", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

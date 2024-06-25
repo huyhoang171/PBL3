@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HTQLCCCD.Models.criminal_record>
+
+@{
+    int i = 1;
+    ViewBag.Title = "Thông Tin Tiền Án";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAD.cshtml";
+}
+
+<h2 style="margin-top: 50px; margin-left: 50px;">@ViewBag.Name</h2>
+
+<p style="margin-top: 50px; margin-left: 50px; text-decoration: underline;">
+    @Html.ActionLink("Thêm tiền án", "CreateCR", new { id = ViewBag.Id })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            STT
+        </th>
+        <th>
+            Nội dung tiền án
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @(i++)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Crime)
+            </td>
+            <td style="text-decoration: underline;">
+
+                @Html.ActionLink("Xóa", "DeleteCR", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+<div style=" margin-left: 50px; text-decoration: underline;">
+    @Html.ActionLink("Quay lại", "Index")
+</div>
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84b3c8d561d645bfaecb848d23e310a1" Name="Diagram1">
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.account" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.admin" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.appointment_schedule" Width="1.5" PointX="6" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.authority" Width="1.5" PointX="3.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.citizen" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.criminal_record" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.feedback" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.notification" Width="1.5" PointX="3.75" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.requirement" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.sending" Width="1.5" PointX="6" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeThongQLCCCDModel.state_leaders" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__account__Id_admi__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__account__Id_admi__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__account__Id_auth__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__account__Id_auth__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__account__Id_user__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__account__Id_user__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__appointme__Id_se__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__appointme__Id_se__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__appointme__Id_so__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__appointme__Id_so__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__requireme__Id_so__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__requireme__Id_so__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__sending__Id_send__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__sending__Id_send__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__citizen__Father__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__citizen__Mother__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__criminal___Id_ci__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__criminal___Id_ci__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__feedback__Id_sen__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__feedback__Id_sen__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__requireme__Id_se__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__requireme__Id_se__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__sending__Id_rece__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__sending__Id_rece__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__sending__Id_noti__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="HeThongQLCCCDModel.FK__sending__Id_noti__797309D9" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

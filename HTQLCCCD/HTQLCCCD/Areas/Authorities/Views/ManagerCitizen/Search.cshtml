@@ -1,0 +1,84 @@
+﻿@model IEnumerable<HTQLCCCD.Models.citizen>
+
+@{
+    int i = 1;
+    ViewBag.Title = "Quản Lý Công Dân";
+    Layout = "~/Areas/Authorities/Views/Shared/_LayoutCQ.cshtml";
+}
+
+<div class="container">
+    <h2 class="my-4">Tìm kiếm</h2>
+    <form class="d-flex" action="~/Authorities/ManagerCitizen/Search">
+        <input type="text" class="form-control mr-2" id="searchInput" placeholder="Nhập từ khóa như số CCCD, tên, quê quán." name="s">
+        <button type="submit" class="btn btn-primary" style="width: 200px; height: 38px;">Tìm kiếm</button>
+    </form>
+</div>
+
+<h2 style="margin-left: 50px; margin-top: 50px; margin-bottom: 30px;">Danh sách công dân hiện có trong hệ thống</h2>
+<p style="margin-left: 50px; margin-bottom: 20px;">
+    @Html.ActionLink("Thêm công dân vào hệ thống", "Create")
+</p>
+<p style="margin-left: 50px; margin-bottom: 30px;">
+    @Html.ActionLink("Ý kiến đóng góp của công dân", "Feedback")
+</p>
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">
+                Số TT
+            </th>
+            <th scope="col">
+                Số ID
+            </th>
+            <th scope="col">
+                Số CCCD
+            </th>
+            <th scope="col">
+                Họ và tên
+            </th>
+            <th scope="col">
+                Ngày sinh
+            </th>
+            <th scope="col">
+                Quê quán
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @(i++)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td>
+                    @item.Date_of_birth.Value.Day/@item.Date_of_birth.Value.Month/@item.Date_of_birth.Value.Year
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Place_of_origin)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Tài khoản", "Account", new { id = item.Id }) |
+                    @Html.ActionLink("Tiền án", "Crim", new { id = item.Id }) |
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    
+

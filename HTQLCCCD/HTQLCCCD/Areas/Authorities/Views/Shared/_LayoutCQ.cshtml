@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> @ViewBag.Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/LayoutCP.css" rel="stylesheet" />
+    <link href="~/Content/css/LayoutCD.css" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico">
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .government-logo {
+            width: 100px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #000; /* Black */
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background-color: #ff7f50; /* Orange */
+            border-color: #ff7f50;
+        }
+
+            .btn-primary:hover {
+                background-color: #ff7f50;
+                border-color: #ff7f50;
+            }
+
+        .modal-header {
+            background-color: #ff7f50; /* Orange */
+            border-color: #ff7f50;
+            color: white;
+        }
+
+        .modal-body input[type="text"],
+        .modal-body input[type="date"] {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 150px;">
+        <div class="header" style="margin-left: 30px;">
+            <img src="https://datafiles.chinhphu.vn/cpp/1/Logo/quoc-huy2.png" alt="Logo của chính phủ" class="government-logo">
+        </div>
+        <div class="navbar-brand" style="margin-left: 30px;">
+            <h3>Hệ Thống Quản Lý Hồ Sơ Công Dân Điện Tử</h3>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="~/Authorities/Home/Index">Trang Chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Authorities/ManagerCitizen/Index">Công Dân</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Authorities/Required/Index">Yêu Cầu Của Công Dân</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Authorities/Notification/Index">Quản Lý Thông Báo</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Authorities/Appointment/Index">Lịch Hẹn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Home/Logout">Đăng Xuất</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    @RenderBody();
+
+    <footer style="background-color: #343a40;">
+        <div class="container">
+
+            <p><a href="#">Home</a></p>
+            <div class="social">
+                <h5>Team executing:</h5>
+                <p>Đặng Ngọc Huy Hoàng</p>
+                <p>Hoàng Văn Đức</p>
+                <p>Trần Bi Tôn</p>
+                <p>Cao Đình Thành</p>
+            </div>
+            <!-- copy right -->
+            <!-- This theme comes under Creative Commons Attribution 4.0 Unported. So don't remove below link back -->
+            <p class="mb-0">&copy; 2024 Hệ Thống Quản Lý Hồ Sơ Công Dân Điện Tử.</p>
+            <p>Email liên hệ: hoang01228590435@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+</html>

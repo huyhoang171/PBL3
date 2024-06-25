@@ -1,0 +1,47 @@
+﻿@model HTQLCCCD.Models.account
+
+@{
+    ViewBag.Title = "Tài Khoản Chính Quyền";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAD.cshtml";
+}
+
+<div class="container" style="margin-top: 50px;">
+    <h4 style="text-align:center; margin-bottom: 30px;">Tài khoản</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            Tài khoản
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.User_name)
+        </dd>
+
+        <dt class="col-sm-3">
+            Mật khẩu
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+
+    </dl>
+</div>
+
+<div style="margin-left: 40px; margin-top: 50px; text-decoration: underline;">
+    @if (Model != null)
+    {
+        @Html.ActionLink("Chỉnh sửa", "EditAC", new { id = Model.Id })
+    }
+    else
+    {
+        @Html.ActionLink("Tạo tài khoản", "CreateAC", new { id = ViewBag.Id })
+
+    }
+
+    <p style="margin-top: 30px; text-decoration: underline;">
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+</div>
+
